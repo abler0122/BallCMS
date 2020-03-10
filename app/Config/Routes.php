@@ -32,6 +32,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->group('member', ['namespace' => 'Modules\Member\Controllers\Auth'], function($routes) {
+    $routes->get('/', 'AuthController::index');
+    $routes->get('login', 'AuthController::login');
+});
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
